@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "sketch": "miniPLC.ino",
+    "port": "/dev/ttyACM0",
+    "programmer": "avrispmkii"
+}
