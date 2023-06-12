@@ -137,7 +137,6 @@ void Commands::response(bool has_cmd, State &state)
   }
 }
 
-unsigned int previousMillis = 0; // will store last time state fetched
 const long interval = 10;        // interval at which to fetch state
 String ID = "1";
 Commands cmds(mySerial, "1");
