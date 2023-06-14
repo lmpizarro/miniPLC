@@ -1,6 +1,7 @@
 #include "state.h"
 #include "def.h"
 #include "ascii_protocol.h"
+#include "plc_func.h"
 
 void setupPins()
 {
@@ -14,9 +15,9 @@ void setupPins()
 
 
 const long interval = 10;        // interval at which to fetch state
+State state(interval);
 String ID = "1";
 AsciiProtocol cmds(mySerial, "1");
-State state(interval);
 
 void setup()
 {
@@ -29,6 +30,6 @@ void loop()
 {
   state.update();
 
-  bool has_cmd = cmds.receive();
-  cmds.response(has_cmd, state);
+  cmds.response(state);
+
 }

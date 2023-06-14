@@ -49,9 +49,9 @@ bool AsciiProtocol::receive(void)
   return false;
 }
 
-void AsciiProtocol::response(bool has_cmd, State &state)
+void AsciiProtocol::response(State &state)
 {
-  if (has_cmd)
+  if (receive())
   {
 
     if (inputString == r_d_1)

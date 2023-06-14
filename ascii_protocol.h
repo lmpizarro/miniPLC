@@ -20,7 +20,7 @@ public:
 
   AsciiProtocol(Stream &, String);
   bool receive(void);
-  void response(bool, State &);
+  void response(State &);
 };
 
 #endif
