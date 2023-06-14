@@ -1,16 +1,6 @@
+#include "state.h"
+#include "def.h"
 
-#define mySerial Serial
-// https://robu.in/arduino-pin-configuration/
-#define pin_d_i_1 DD2
-#define pin_d_i_2 DD3
-#define pin_d_i_3 DD4
-#define pin_d_i_4 DD5
-#define pin_d_o_1 DD7
-#define pin_d_o_2 8
-#define analogOut_01 DD6
-#define analogOut_02 9
-#define pin_a_i_1 A0
-#define pin_a_i_2 A1
 
 void setupPins()
 {
@@ -27,37 +17,6 @@ bool in_range(const char c)
   if (48 <= c <= 57 || 65 <= c <= 90 || 97 <= c <= 122 || c == 58 || c == 59)
     return true;
   return false;
-}
-
-class State
-{
-public:
-  bool d_i_1, d_i_2, d_i_3, d_i_4;
-  bool d_o_1, d_o_2;
-  unsigned int a_i_1, a_i_2;
-  const unsigned int interval;
-  unsigned int previousMillis;
-  State(unsigned int intervl) : interval(intervl) {}
-  void update(void);
-};
-
-void State::update(void)
-{
-  unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >= interval)
-  {
-    // save the last time you blinked the LED
-    previousMillis = currentMillis;
-
-    d_i_1 = digitalRead(pin_d_i_1);
-    d_i_2 = digitalRead(pin_d_i_2);
-    d_i_3 = digitalRead(pin_d_i_3);
-    d_i_4 = digitalRead(pin_d_i_4);
-    d_o_1 = digitalRead(pin_d_o_1);
-    d_o_2 = digitalRead(pin_d_o_2);
-    a_i_1 = analogRead(pin_a_i_1);
-    a_i_2 = analogRead(pin_a_i_2);
-  }
 }
 
 class Commands
