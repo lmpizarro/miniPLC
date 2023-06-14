@@ -15,8 +15,10 @@ public:
   char inChar;
   // command codes
   String ID;
-  String r_d_1 = ID;
-  String r_a_1 = ID;
+  String r_d_1;
+  String r_a_1;
+  String c_d_o_1;
+  String c_d_o_2;
 
   AsciiProtocol(Stream &, String);
   bool receive(void);
